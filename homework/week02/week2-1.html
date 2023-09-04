@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML Practice</title>
+    <style>
+        .introduction {
+            margin: 0px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        header {
+            width: 100%;
+            background-color: #005766;
+            height: 200px;
+        }
+
+        header>div {
+            float: left;
+        }
+
+        header h1,
+        header p {
+            color: white;
+            text-align: center;
+            margin: 30px;
+        }
+
+        header img {
+            height: 150px;
+            padding: 20px;
+        }
+
+        nav {
+            clear: both;
+            background-color: #3db7cc;
+            height: 35px;
+        }
+
+        nav a {
+            width: 170px;
+            height: 35px;
+            padding: 5px;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        section {
+            margin: 10px;
+            padding: 10px;
+            width: 45%;
+            height: 200px;
+            float: left;
+            border: 1px solid #3db7cc;
+            box-sizing: border-box;
+        }
+
+        section p,
+        section u1,
+        section o1 {
+            padding-left: 50px;
+        }
+
+        h2 {
+            margin: 5px;
+            padding: 10px;
+            background-color: #005766;
+            color: rgb(255, 255, 255);
+        }
+
+        section a {
+            width: 80%;
+            height: 15px;
+            padding: 5px;
+        }
+
+        footer {
+            clear: both;
+            height: 50px;
+            background-color: #eaeaea;
+            color: #5d5d5d;
+            padding: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="https://avatars.githubusercontent.com/u/100016044?v=4" alt="Selfie" id="fig">
+        </div>
+        <h1 class="introduction">서강문</h1>
+        <p class="introduction">Database</p>
+    </header>
+    <nav>
+        <a href="#s1">[Personal information]</a>&nbsp;&nbsp;
+        <a href="#s2">[Coursework]</a>&nbsp;&nbsp;
+        <a href="#s3">[Courses]</a>&nbsp;&nbsp;
+        <a href="#s4">[Introducing]</a>&nbsp;&nbsp;
+    </nav>
+    <section id="s1">
+        <h2>Personal information</h2>
+        <ul>
+            <li>Kangmoon Seo</li>
+            <li>010-4498-1171</li>
+            <li>m_oon17@naver.com</li>
+            <li>Michuhol-gu, Incheon, Korea</li>
+        </ul>
+    </section>
+    <section class="sc2" id="s2">
+        <h2 class="c2">Coursework</h2>
+        <ol>
+            <li>Linear Algebra</li>
+            <li>Data Structures</li>
+            <li>Programming Practice</li>
+            <li>Algorithm Design</li>
+        </ol>
+    </section>
+    <section class="sc3" id="s3">
+        <h2 class="c3">Courses</h2>
+        <ul>
+            <li>Database</li>
+        </ul>
+    </section>
+    <section class="sc4" id="s4">
+        <h2 class="c4">Introducing</h2>
+        <p id="p1">
+            <br><br>
+            *** Hello, I'm a database assistant. ***
+            <br>
+        </p>
+    </section>
+    <footer>
+        <p>&copy;Kangmoon Seo<br />m_oon17@naver.com</p>
+    </footer>
+</body>
+
+</html>
