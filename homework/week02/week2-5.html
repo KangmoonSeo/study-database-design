@@ -21,28 +21,13 @@
     <form id="js-guess">
         <label for="num">Guess the number:</label>
         <input id="num" type="number" max="200" min="0" />
-        <button>Play!</button>
+        <input type="submit" id = "submit" value="Play!">
     </form>
     <div id="js-result">
         <span></span>
     </div>
 
-    <script>
-        const maxNumber = document.getElementById("number");
-        const clientNumber = document.getElementById("js-range").value;
-
-        const printForm = document.getElementById("js-guess");
-        const play = () => {
-            console.log(clientNumber);
-        }
-
-        const generateRandomNumber = (min, max) => {
-            return Math.floor(Math.random() * (max - min + 1) + min);
-        }
-
-        printForm.addEventListener("submit", play);
-    </script>
-
+    <script type="text/javascript" src="week2-5.js"></script>
 </body>
 
 </html>

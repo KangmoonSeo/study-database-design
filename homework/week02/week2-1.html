@@ -3,93 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>HTML Practice</title>
-    <style>
-        .introduction {
-            margin: 0px;
-            padding: 20px;
-            text-align: left;
-        }
-
-        body {
-            margin: 0px;
-            padding: 0px;
-        }
-
-        header {
-            width: 100%;
-            background-color: #005766;
-            height: 200px;
-        }
-
-        header>div {
-            float: left;
-        }
-
-        header h1,
-        header p {
-            color: white;
-            text-align: center;
-            margin: 30px;
-        }
-
-        header img {
-            height: 150px;
-            padding: 20px;
-        }
-
-        nav {
-            clear: both;
-            background-color: #3db7cc;
-            height: 35px;
-        }
-
-        nav a {
-            width: 170px;
-            height: 35px;
-            padding: 5px;
-            display: inline-block;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        section {
-            margin: 10px;
-            padding: 10px;
-            width: 45%;
-            height: 200px;
-            float: left;
-            border: 1px solid #3db7cc;
-            box-sizing: border-box;
-        }
-
-        section p,
-        section u1,
-        section o1 {
-            padding-left: 50px;
-        }
-
-        h2 {
-            margin: 5px;
-            padding: 10px;
-            background-color: #005766;
-            color: rgb(255, 255, 255);
-        }
-
-        section a {
-            width: 80%;
-            height: 15px;
-            padding: 5px;
-        }
-
-        footer {
-            clear: both;
-            height: 50px;
-            background-color: #eaeaea;
-            color: #5d5d5d;
-            padding: 20px;
-            font-size: 12px;
-        }
-    </style>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="week2-1.css">
 </head>
 
 <body>
@@ -108,33 +24,40 @@
     </nav>
     <section id="s1">
         <h2>Personal information</h2>
-        <ul>
-            <li>Kangmoon Seo</li>
-            <li>010-4498-1171</li>
-            <li>m_oon17@naver.com</li>
-            <li>Michuhol-gu, Incheon, Korea</li>
+        <ul style="list-style-type: none;">
+            <li><span class="material-symbols-outlined">person</span> Kangmoon Seo</li>
+            <li><span class="material-symbols-outlined">call</span>010-4498-1171</li>
+            <li><span class="material-symbols-outlined">
+                    mail
+                </span>m_oon17@naver.com</li>
+            <li><span class="material-symbols-outlined">
+                    home
+                </span>Michuhol-gu, Incheon, Korea</li>
         </ul>
     </section>
     <section class="sc2" id="s2">
         <h2 class="c2">Coursework</h2>
         <ol>
-            <li>Linear Algebra</li>
             <li>Data Structures</li>
-            <li>Programming Practice</li>
-            <li>Algorithm Design</li>
+            <li>Operating System</li>
+            <li>Inha Teukgang</li>
+            <li>Computer Network</li>
+            <li>Information security</li>
         </ol>
     </section>
     <section class="sc3" id="s3">
         <h2 class="c3">Courses</h2>
         <ul>
-            <li>Database</li>
+            <li><a href="http://dilab.inha.ac.kr">Database</a></li>
         </ul>
     </section>
     <section class="sc4" id="s4">
         <h2 class="c4">Introducing</h2>
         <p id="p1">
-            <br><br>
-            *** Hello, I'm a database assistant. ***
+            <br>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi distinctio suscipit reprehenderit, ab id
+            illo, sunt molestiae consectetur laborum, nobis hic expedita veritatis! Expedita voluptas rerum, repellat
+            maiores mollitia aspernatur.
             <br>
         </p>
     </section>
