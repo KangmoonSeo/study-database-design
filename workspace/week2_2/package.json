@@ -1,0 +1,21 @@
+{
+  "name": "week2_2",
+  "version": "1.0.0",
+  "description": "database week2_2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.22.15",
+    "@babel/node": "^7.22.15",
+    "@babel/preset-env": "^7.22.15",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0",
+    "nodemon": "^3.0.1"
+  }
+}
