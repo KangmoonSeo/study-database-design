@@ -1,0 +1,24 @@
+<h1>{{main_title}}</h1>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone_number</td>
+        <td>Building_id</td>
+    </tr>
+    {{#each department_res}}
+    <form method="post">
+        <tr>
+            <td>{{id}}</td>
+            <td style="display: none"><input type="text" name="id" value={{id}}></td> 
+            <td><input type="text" name="name" value="{{name}}"></td> 
+            <td><input type="text" name="email" value={{email}}></td> 
+            <td><input type="text" name="phone_number" value={{phone_number}}></td> 
+            <td><input type="text" name="Building_id" value="{{Building_id}}"></td>
+            <td><input type="submit" value="Modify" formaction="/update/department"></td>
+        </tr>
+    </form>
+    {{/each}}
+</table>
+
