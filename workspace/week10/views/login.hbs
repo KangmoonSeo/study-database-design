@@ -1,0 +1,50 @@
+<style>
+    body {
+        height: 75vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .frame {
+        border-radius: 15px;
+        box-sizing: border-box;
+        border: 1px solid #757575;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 350px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #id, #passwd, .btn {
+        font-size: 25px;
+    }
+    .pwd {
+        margin-top: 15px;
+    }
+    .btn {
+        width: 322px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="frame">
+    <h1>Login</h1>
+    <form id="deparment" method="post" action='/'>
+        <div class="id">
+            <input id="id" name="id" type="text" required placeholder="ID">
+        </div>
+        <div class="pwd">
+            <input id="passwd" name='password' type="password" required  placeholder="Password">
+        </div>
+        <button class='btn' type="submit">Login</button>
+    </form>
+</div>
+
