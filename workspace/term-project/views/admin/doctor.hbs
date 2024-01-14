@@ -1,0 +1,186 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <title>인하병원 관리자 페이지</title>
+    <style>
+      header { background-color: #123254; color: white; padding: 20px;
+      font-weight: bold; } .container { margin-top: 20px; } .btn { white-space:
+      nowrap; } table { margin-top: 20px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>인하병원 관리자 페이지</h1>
+        <div>
+          <a href="/" class="btn btn-outline-danger">로그아웃</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="btn-group mb-3">
+        <a href="/admin/doctor" class="btn btn-info">의사 리스트</a>
+        <a href="/admin/nurse" class="btn btn-secondary">간호사 리스트</a>
+      </div>
+      <div class="btn-group float-right">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-toggle="modal"
+          data-target="#inputModal"
+        >입력</button>
+      </div>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">부서 ID</th>
+            <th scope="col">이름</th>
+            <th scope="col">주소</th>
+            <th scope="col">전화번호</th>
+            <th scope="col">수정</th>
+            <th scope="col">삭제</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each doctors}}
+            <form method="post" action="/admin/doctor/{{this.doctor_id}}">
+              <tr>
+                <th scope="row">{{this.doctor_id}}</th>
+                <td><input
+                    type="text"
+                    name="department_id"
+                    value="{{this.department_id}}"
+                    class="form-control"
+                  /></td>
+                <td><input
+                    type="text"
+                    name="name"
+                    value="{{this.name}}"
+                    class="form-control"
+                  /></td>
+                <td><input
+                    type="text"
+                    name="address"
+                    value="{{this.address}}"
+                    class="form-control"
+                  /></td>
+                <td><input
+                    type="text"
+                    name="phone_number"
+                    value="{{this.phone_number}}"
+                    class="form-control"
+                  /></td>
+                <td><button
+                    type="submit"
+                    class="btn btn-warning btn-sm"
+                  >수정</button></td>
+                <td><button
+                    type="button"
+                    class="btn btn-danger btn-sm"
+                    onclick="deleteDoctor('{{this.doctor_id}}')"
+                  >삭제</button></td>
+              </tr>
+            </form>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal fade" id="inputModal" tabindex="-1" role="dialog" aria-labelledby="inputModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="inputModalLabel">입력 화면</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form method="post" action="/admin/doctor">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="doctor_id">ID</label>
+                <input type="text" class="form-control" id="doctor_id" name="doctor_id"/>
+              </div>
+              <div class="form-group">
+                <label for="department_id">부서 ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="department_id"
+                  name="department_id"
+                />
+              </div>
+              <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" class="form-control" id="name" name="name" />
+              </div>
+              <div class="form-group">
+                <label for="address">주소</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address"
+                  name="address"
+                />
+              </div>
+              <div class="form-group">
+                <label for="phone_number">전화번호</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phone_number"
+                  name="phone_number"
+                />
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">추가</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >닫기</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+    <script>
+      function deleteDoctor(id) {
+        if (confirm("정말로 삭제하시겠습니까?")) {
+          fetch(`/admin/doctor/${id}`, {
+            method: 'DELETE',
+          })
+            .then((res) => {
+              if (!res.ok) {
+                alert("삭제에 실패했습니다.");
+                return;
+              }
+            })
+            .then(() => {
+              alert("삭제했습니다.");
+              location.reload();
+            });
+        }
+      }
+    </script>
+  </body>
+</html>

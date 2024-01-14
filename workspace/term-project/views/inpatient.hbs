@@ -1,0 +1,64 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <title>인하병원 환자 페이지</title>
+    <style>
+      header { background-color: #123254; color: white; padding: 20px;
+      font-weight: bold; } .container { margin-top: 20px; } .btn { white-space:
+      nowrap; } table { margin-top: 20px; } .custom-jumbotron { padding: 2rem;
+      margin-bottom: 2rem; background-color: #e9ecef; border-radius: 0.3rem; }
+      .custom-jumbotron h1 { font-size: 2.5rem; font-weight: 300; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>인하병원 환자 페이지</h1>
+        <div>
+          <a href="/" class="btn btn-outline-danger">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <div class="custom-jumbotron">
+      <h1 class="display-4">안녕하세요,
+        <b>{{patient_name}}({{patient_id}})</b>
+        님</h1>
+    </div>
+    <div class="container">
+      <div class="btn-group mb-3">
+        <a href="/patient" class="btn btn-secondary">내 예약</a>
+        <a href="/patient/inpatient" class="btn btn-info">내 입원기록</a>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">입원호실</th>
+            <th scope="col">입원일</th>
+            <th scope="col">퇴원일</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each inpatients}}
+            <tr>
+              <th scope="row">{{this.room_id}}</th>
+              <th scope="row">{{this.admission_date}}</th>
+              <th scope="row">{{this.discharge_date}}</th>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+  </body>
+</html>

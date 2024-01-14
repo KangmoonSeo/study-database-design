@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <style>
+      body { height: 75vh; display: flex; justify-content: center; align-items:
+      center; flex-direction: column; } .frame { border-radius: 15px;
+      box-sizing: border-box; border: 1px solid #757575; display: flex;
+      justify-content: center; align-items: center; flex-direction: column;
+      width: 350px; } form { display: flex; flex-direction: column;
+      justify-content: center; align-items: center; } #id, #pw, .btn {
+      font-size: 25px; } .pw { margin-top: 15px; } .btn { width: 322px;
+      margin-top: 0px; margin-bottom: 20px; } .form-check-label { font-size:
+      15px; margin-top:15px; margin-right: 20px; }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <h1>🏥</h1>
+      <h3>인하병원 로그인 페이지</h3>
+      <form id="department" method="post">
+        <div class="id">
+          <input id="id" name="id" type="text" class="form-control" required placeholder="ID" />
+        </div>
+        <div class="pw">
+          <input id="pw" name="pw" type="password" class="form-control" required placeholder="Password"/>
+        </div>
+
+        <div class="form-group">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="role" id="admin" value="admin" checked required/>
+            관리자
+          </label>
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="role" id="doctor" value="doctor" required/>
+            의사
+          </label>
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="role" id="nurse" value="nurse" required/>
+            간호사
+          </label>
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="role" id="patient" value="patient" required/>
+            환자
+          </label>
+        </div>
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    ></script>
+  </body>
+</html>

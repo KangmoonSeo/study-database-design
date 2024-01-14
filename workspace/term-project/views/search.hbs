@@ -1,0 +1,158 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <title>인하병원 환자 검색 페이지</title>
+    <style>
+      header { background-color: #123254; color: white; padding: 20px;
+      font-weight: bold; } .container { margin-top: 20px; } .btn { white-space:
+      nowrap; } table { margin-top: 20px; } .custom-jumbotron { padding: 2rem;
+      margin-bottom: 2rem; background-color: #e9ecef; border-radius: 0.3rem; }
+      .custom-jumbotron h1 { font-size: 2.5rem; font-weight: 300; }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>인하병원 환자 검색 페이지</h1>
+        <div>
+          <a href="/" class="btn btn-outline-danger">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <div class="custom-jumbotron">
+      <h1 class="display-4">안녕하세요,
+        <b>{{searcher_name}}({{searcher_id}})</b>
+        님</h1>
+    </div>
+    <div class="container">
+      <div class="btn-group mb-3">
+        <a href="/{{searcher_role}}" class="btn btn-secondary">돌아가기</a>
+        <a class="btn btn-info">환자 검색</a>
+      </div>
+      <div class="btn-group float-right">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-toggle="modal"
+          data-target="#inputModal"
+        >검색 설정</button>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">환자 ID</th>
+            <th scope="col">의사 ID</th>
+            <th scope="col">간호사 ID</th>
+            <th scope="col">환자명</th>
+            <th scope="col">성별</th>
+            <th scope="col">주소</th>
+            <th scope="col">혈액형</th>
+            <th scope="col">신장</th>
+            <th scope="col">체중</th>
+            <th scope="col">전화번호</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#if patients.length}}
+            {{#each patients}}
+              <tr>
+                <th scope="row">{{this.patient_id}}</th>
+                <th scope="row">{{this.doctor_id}}</th>
+                <th scope="row">{{this.nurse_id}}</th>
+                <th scope="row">{{this.name}}</th>
+                <th scope="row">{{this.gender}}</th>
+                <th scope="row">{{this.address}}</th>
+                <th scope="row">{{this.blood_type}}</th>
+                <th scope="row">{{this.height}}</th>
+                <th scope="row">{{this.weight}}</th>
+                <th scope="row">{{this.phone_number}}</th>
+              </tr>
+            {{/each}}
+          {{else}}
+            <tr>
+              <td colspan="10" style="text-align: center;">검색 결과가 없습니다.</td>
+            </tr>
+          {{/if}}
+        </tbody>
+      </table>
+
+    </div>
+
+    <div
+      class="modal fade"
+      id="inputModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="inputModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="inputModalLabel">검색 화면</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <form method="get" action="/search">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="patient_id">환자 ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="patient_id"
+                  name="patient_id"
+                />
+              </div>
+              <div class="form-group">
+                <label for="name">환자 이름</label>
+                <input type="text" class="form-control" id="name" name="name" />
+              </div>
+              <div class="form-group">
+                <label for="phone_number">전화번호</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phone_number"
+                  name="phone_number"
+                />
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">검색</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >닫기</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+  </body>
+
+</html>

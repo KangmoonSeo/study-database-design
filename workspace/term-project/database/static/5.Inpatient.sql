@@ -1,0 +1,14 @@
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2023-12-01 10:00:00', 1000010, '2023-12-05 14:00:00', '101A');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2023-12-02 11:30:00', 1000011, '2023-12-06 15:30:00', '102B');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2023-12-03 09:15:00', 1000012, '2023-12-07 13:45:00', '103C');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2023-12-08 14:20:00', 1000013, '2023-12-12 11:00:00', '201A');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2023-12-09 13:10:00', 1000014, '2023-12-13 10:45:00', '202B');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2023-12-14 12:00:00', 1000015, '2023-12-18 16:30:00', '203C');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2023-12-19 08:30:00', 1000016, '2023-12-23 14:55:00', '301A');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2023-12-20 15:45:00', 1000017, '2023-12-24 12:15:00', '302B');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2023-12-26 09:00:00', 1000019, '2023-12-29 10:45:00', '401A');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2023-12-27 14:30:00', 1000020, '2023-12-30 12:00:00', '402B');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2023-12-31 11:00:00', 1000010, '2024-01-04 16:20:00', '403C');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2024-01-05 10:30:00', 1000011, '2024-01-08 13:45:00', '501A');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2024-01-06 11:45:00', 1000012, '2024-01-09 15:00:00', '502B');
+INSERT INTO Inpatient (admission_date, patient_id, discharge_date, room_id) VALUES ('2024-01-07 12:55:00', 1000013, '2024-01-10 09:15:00', '503C');

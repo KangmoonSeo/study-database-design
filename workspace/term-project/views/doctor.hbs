@@ -1,0 +1,178 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <title>인하병원 의사 페이지</title>
+    <style>
+      header { background-color: #123254; color: white; padding: 20px;
+      font-weight: bold; } .container { margin-top: 20px; } .btn { white-space:
+      nowrap; } table { margin-top: 20px; } .custom-jumbotron { padding: 2rem;
+      margin-bottom: 2rem; background-color: #e9ecef; border-radius: 0.3rem; }
+      .custom-jumbotron h1 { font-size: 2.5rem; font-weight: 300; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>인하병원 의사 페이지</h1>
+        <div>
+          <a href="/" class="btn btn-outline-danger">로그아웃</a>
+        </div>
+      </div>
+    </header>
+    <div class="custom-jumbotron">
+      <h1 class="display-4">안녕하세요,
+        <b>{{doctor_name}}({{doctor_id}})</b>
+        님</h1>
+    </div>
+    <div class="container">
+      <div class="btn-group mb-3">
+        <a class="btn btn-info">담당 검진 내역</a>
+        <a href="/search" class="btn btn-secondary">환자 검색</a>
+      </div>
+      <div class="btn-group float-right">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-toggle="modal"
+          data-target="#inputModal"
+        >입력</button>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">검진일</th>
+            <th scope="col">환자 이름</th>
+            <th scope="col">전화번호</th>
+            <th scope="col">검진 세부기록</th>
+            <th scope="col">수정</th>
+            <th scope="col">삭제</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each examinations}}
+            <form
+              method="post"
+              action="/doctor/examination/{{this.examination_date}}"
+            >
+              <input
+                type="hidden"
+                name="patient_id"
+                value="{{this.patient_id}}"
+                class="form-control"
+              />
+              <tr>
+                <th scope="row">{{this.examination_date}}</th>
+                <th scope="row">{{this.name}}</th>
+                <th scope="row">{{this.phone_number}}</th>
+                <td><input
+                    type="text"
+                    name="examination_details"
+                    value="{{this.examination_details}}"
+                    class="form-control"
+                  /></td>
+                <td><button
+                    type="submit"
+                    class="btn btn-warning btn-sm"
+                  >수정</button></td>
+                <td><button
+                    type="button"
+                    class="btn btn-danger btn-sm"
+                    onclick="deleteDoctor('{{this.examination_date}}')"
+                  >삭제</button></td>
+              </tr>
+            </form>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+    <div
+      class="modal fade"
+      id="inputModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="inputModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="inputModalLabel">입력 화면</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <form method="post" action="/doctor/examination">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="patient_id">환자 ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="patient_id"
+                  name="patient_id"
+                />
+              </div>
+              <div class="form-group">
+                <label for="examination_details">검진 세부기록</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="examination_details"
+                  name="examination_details"
+                />
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">추가</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >닫기</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+    <script>
+      function deleteDoctor(examination_date) {
+        if (confirm("정말로 삭제하시겠습니까?")) {
+          fetch(`/doctor/examination/${examination_date}`, {
+            method: 'DELETE',
+          })
+            .then((res) => {
+              if (!res.ok) {
+                alert("삭제에 실패했습니다.");
+                return;
+              }
+              alert("삭제했습니다.");
+              location.reload();
+            });
+        }
+      }
+    </script>
+
+  </body>
+</html>
